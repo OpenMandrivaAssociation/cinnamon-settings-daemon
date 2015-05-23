@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   cinnamon-settings-daemon-2.4.3.tar.gz: 1fe89c5800e5a3e9040ea8ebb08ae3af09f81ea9
+sources:
+  cinnamon-settings-daemon-2.6.0.tar.gz: 065926b63462056175334d1cce24b725941f4c7f
