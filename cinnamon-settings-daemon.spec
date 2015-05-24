@@ -1,6 +1,6 @@
 Name:		cinnamon-settings-daemon
 Version:	2.4.3
-Release:	%mkrel 2
+Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -108,105 +108,4 @@ find %{buildroot} -name '*.la' -delete
 %{_libdir}/pkgconfig/cinnamon-settings-daemon.pc
 %{_libexecdir}/csd-test-*
 %{_datadir}/cinnamon-settings-daemon-3.0/
-
-
-%changelog
-* Thu Nov 27 2014 joequant <joequant> 2.4.3-2.mga5
-+ Revision: 799549
-- bump for main build
-
-* Sun Nov 23 2014 joequant <joequant> 2.4.3-1.mga5
-+ Revision: 798402
-- upgrade to 2.4
-
-* Wed Oct 15 2014 umeabot <umeabot> 2.2.4-6.mga5
-+ Revision: 747339
-- Second Mageia 5 Mass Rebuild
-
-* Thu Sep 18 2014 umeabot <umeabot> 2.2.4-5.mga5
-+ Revision: 693611
-- Rebuild to fix library dependencies
-
-* Tue Sep 16 2014 umeabot <umeabot> 2.2.4-4.mga5
-+ Revision: 678401
-- Mageia 5 Mass Rebuild
-
-* Thu Sep 04 2014 colin <colin> 2.2.4-3.mga5
-+ Revision: 672041
-- Rebuild for new systemd
-
-* Wed Aug 27 2014 fwang <fwang> 2.2.4-2.mga5
-+ Revision: 668649
-- rebuild for new upower
-
-* Mon Jun 09 2014 joequant <joequant> 2.2.4-1.mga5
-+ Revision: 635272
-- upgrade to 2.2.4
-
-* Wed May 14 2014 joequant <joequant> 2.2.3-1.mga5
-+ Revision: 622793
-- fix for wacom compile
-- upgrade to 2.2.3
-
-* Fri Apr 18 2014 joequant <joequant> 2.2.1-1.mga5
-+ Revision: 616816
-- upgrade to 2.2
-
-* Sun Mar 30 2014 joequant <joequant> 2.0.10-3.mga5
-+ Revision: 610299
-- upgrade to upower 1.0
-
-  + dams <dams>
-    - rebuild for new upower
-
-  + fwang <fwang>
-    - 2.0.10
-
-* Wed Jan 08 2014 joequant <joequant> 2.0.8-2.mga4
-+ Revision: 565561
-- push to core/release
-
-* Wed Jan 01 2014 joequant <joequant> 2.0.8-1.mga4
-+ Revision: 563793
-- upgrade to 2.0.8
-
-* Wed Oct 23 2013 joequant <joequant> 2.0.3-2.mga4
-+ Revision: 546393
-- upgrade to 2.0.3
-
-* Mon Oct 21 2013 umeabot <umeabot> 2.0.1-2.mga4
-+ Revision: 539588
-- Mageia 4 Mass Rebuild
-
-* Mon Oct 07 2013 joequant <joequant> 2.0.1-1.mga4
-+ Revision: 492502
-- update to 2.0.1
-
-* Tue Oct 01 2013 joequant <joequant> 1.9.1-1.mga4
-+ Revision: 490040
-- update to 1.9.1
-
-* Wed Sep 18 2013 joequant <joequant> 1.0.0-0.20130905gitcb4d724.5.mga4
-+ Revision: 481143
-- update to git
-
-* Sat Sep 14 2013 wally <wally> 1.0.0-0.4.git0dc4921.mga4
-+ Revision: 478952
-- rebuild for new colord
-- use %%makeinstall_std macro
-- move autogen.sh usage to %%build section
-- remove unneeded post/postun/posttrans scripts
-
-* Mon Sep 02 2013 joequant <joequant> 1.0.0-0.3.git0dc4921.mga4
-+ Revision: 474271
-- update to latest git
-
-* Sun Aug 25 2013 joequant <joequant> 1.0.0-0.2.gitb8b57d9.mga4
-+ Revision: 471618
-- fix color plugin
-
-* Fri Aug 23 2013 joequant <joequant> 1.0.0-0.1.gitb8b57d9.mga4
-+ Revision: 470053
-- add libcanberra-gtk3 buildrequires
-- imported package cinnamon-settings-daemon
 
