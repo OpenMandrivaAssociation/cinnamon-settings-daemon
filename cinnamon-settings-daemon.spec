@@ -2,7 +2,7 @@ Name:		cinnamon-settings-daemon
 Version:	2.4.3
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
-Group:		Graphical desktop/Cinnamon
+Group:		Graphical desktop/Other
 License:	GPLv2+ and LGPLv2+
 URL:		http://cinnamon.linuxmint.com
 Source0:        %{name}-%{version}.tar.gz
