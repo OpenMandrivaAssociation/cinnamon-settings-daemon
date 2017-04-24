@@ -1,7 +1,7 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	3.0.1
+Version:	3.2.1
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
@@ -11,7 +11,7 @@ Source0:        %{name}-%{version}.tar.gz
 #SourceGet0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}.tar.gz
 Patch0: upower_critical-action.patch
 
-BuildRequires:	pkgconfig(cinnamon-desktop) >= 1.0.0
+BuildRequires:	pkgconfig(cinnamon-desktop) >= 3.2.0
 BuildRequires:	pkgconfig(colord) >= 0.1.9
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1)
