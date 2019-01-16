@@ -1,7 +1,7 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	3.2.1
+Version:	4.0.3
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
@@ -10,6 +10,7 @@ URL:		http://cinnamon.linuxmint.com
 Source0:        %{name}-%{version}.tar.gz
 #SourceGet0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}.tar.gz
 Patch0: upower_critical-action.patch
+Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
 
 BuildRequires:	pkgconfig(cinnamon-desktop) >= 3.2.0
 BuildRequires:	pkgconfig(colord) >= 0.1.9
@@ -68,7 +69,7 @@ developing applications that use %{name}.
 
 %prep
 %setup -q -n cinnamon-settings-daemon-%{version}
-%patch0 -p1
+%apply_patches
 
 %build
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
@@ -84,30 +85,23 @@ NOCONFIGURE=1 ./autogen.sh
 %makeinstall_std
 find %{buildroot} -name '*.la' -delete
 
-%find_lang %{name} --with-gnome
+#find_lang %{name} --with-gnome
 
-%files -f %{name}.lang
+%files
 %doc AUTHORS COPYING
 %config %{_sysconfdir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
+%{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
 %{_libdir}/cinnamon-settings-daemon-3.0/
-%{_libexecdir}/cinnamon-settings-daemon
-%{_libexecdir}/csd-backlight-helper
-%{_libexecdir}/csd-datetime-mechanism
-%{_libexecdir}/csd-locate-pointer
-%{_libexecdir}/csd-printer
-%{_libexecdir}/csd-list-wacom
-%{_libexecdir}/csd-wacom-led-helper
-%{_datadir}/applications/cinnamon-settings-daemon.desktop
+%{_libexecdir}/csd-*
 %{_datadir}/cinnamon-settings-daemon/
+%{_datadir}/applications/csd-automount.desktop
 %{_datadir}/dbus-1/system-services/org.cinnamon.SettingsDaemon.DateTimeMechanism.service
 %{_datadir}/glib-2.0/schemas/org.cinnamon.settings-daemon*.xml
-%{_datadir}/icons/hicolor/*/apps/csd-xrandr.*
+%{_datadir}/icons/hicolor/*/apps/csd-*.*
 %{_datadir}/polkit-1/actions/org.cinnamon.settings*.policy
-%{_mandir}/man1/cinnamon-settings-daemon.1.*
 
 %files devel
 %{_includedir}/cinnamon-settings-daemon-3.0/
 %{_libdir}/pkgconfig/cinnamon-settings-daemon.pc
-%{_libexecdir}/csd-test-*
 %{_datadir}/cinnamon-settings-daemon-3.0/
 
