@@ -1,0 +1,11 @@
+--- cinnamon-settings-daemon-4.0.3/plugins/xrandr/csd-xrandr-manager.c.orig	2019-01-16 18:29:04.138138734 +0000
++++ cinnamon-settings-daemon-4.0.3/plugins/xrandr/csd-xrandr-manager.c	2019-01-16 18:50:41.763236099 +0000
+@@ -149,6 +149,8 @@
+ static void handle_rotate_windows (CsdXrandrManager *mgr, GnomeRRRotation rotation, guint32 timestamp);
+ static void rotate_touchscreens (CsdXrandrManager *mgr, GnomeRRRotation rotation);
+ 
++void register_manager_dbus (CsdXrandrManager *manager);
++
+ G_DEFINE_TYPE (CsdXrandrManager, csd_xrandr_manager, G_TYPE_OBJECT)
+ 
+ static gpointer manager_object = NULL;
