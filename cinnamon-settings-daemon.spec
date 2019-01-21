@@ -51,6 +51,7 @@ BuildRequires: pkgconfig(xorg-wacom)
 BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(librsvg-2.0)
 BuildRequires: pkgconfig(xtst)
+BuildConflicts:	heimdal-devel
 
 %description
 A daemon to share settings from CINNAMON to other applications. It also
