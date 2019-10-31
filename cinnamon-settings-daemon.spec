@@ -1,14 +1,13 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	4.0.3
+Version:	4.2.2
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
 URL:		http://cinnamon.linuxmint.com
-Source0:        %{name}-%{version}.tar.gz
-#SourceGet0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}.tar.gz
+Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0: upower_critical-action.patch
 Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
 
@@ -76,14 +75,14 @@ developing applications that use %{name}.
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
 echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
 NOCONFIGURE=1 ./autogen.sh
-%configure2_5x --disable-static \
+%configure --disable-static \
            --enable-profiling \
            --enable-systemd
-%make
+%make_build
 
 
 %install
-%makeinstall_std
+%make_install
 find %{buildroot} -name '*.la' -delete
 
 #find_lang %{name} --with-gnome
