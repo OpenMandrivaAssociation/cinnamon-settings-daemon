@@ -2,7 +2,7 @@
 
 Name:		cinnamon-settings-daemon
 Version:	4.4.0
-Release:	1
+Release:	2
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -53,6 +53,8 @@ BuildRequires: pkgconfig(xtst)
 BuildConflicts:	heimdal-devel
 # As of cinnamon-settings-deamon 4.2.2 is needed or cinnamon-settings won't open due to "No module named 'tinycss'". (angry)
 Requires:      python-tinycss
+# As of cinnamon-settings-deamon 4.4.0 is needed ot cinnamon-settings won'r open due to "ModuleNotFoundError: No module named 'pytz'
+Requires:      python-pytz
 
 %description
 A daemon to share settings from CINNAMON to other applications. It also
