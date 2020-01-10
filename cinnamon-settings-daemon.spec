@@ -73,7 +73,7 @@ developing applications that use %{name}.
 
 %prep
 %setup -q -n cinnamon-settings-daemon-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
