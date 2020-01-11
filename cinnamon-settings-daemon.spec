@@ -2,7 +2,7 @@
 
 Name:		cinnamon-settings-daemon
 Version:	4.4.0
-Release:	2
+Release:	3
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
