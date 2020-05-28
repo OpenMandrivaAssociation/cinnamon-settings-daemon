@@ -76,6 +76,10 @@ developing applications that use %{name}.
 %autopatch -p1
 
 %build
+%ifarch armv7hnl
+export CC=gcc
+export CXX=g++
+%endif
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
 echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
 NOCONFIGURE=1 ./autogen.sh
