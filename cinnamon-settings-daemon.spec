@@ -41,6 +41,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
+BuildRequires:  meson
 BuildRequires:	intltool
 BuildRequires:	gnome-common
 BuildRequires:	cups-devel
@@ -80,17 +81,13 @@ developing applications that use %{name}.
 export CC=gcc
 export CXX=g++
 %endif
-sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
-echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
-NOCONFIGURE=1 ./autogen.sh
-%configure --disable-static \
-           --enable-profiling \
-           --enable-systemd
-%make_build
+
+%meson
+%meson_build
 
 
 %install
-%make_install
+%meson_install
 find %{buildroot} -name '*.la' -delete
 
 #find_lang %{name} --with-gnome
