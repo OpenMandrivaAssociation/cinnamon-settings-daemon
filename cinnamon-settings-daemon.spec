@@ -93,7 +93,7 @@ find %{buildroot} -name '*.la' -delete
 
 %files
 %doc AUTHORS COPYING
-%{_bindir}/bin/csd-*
+%{_bindir}/csd-*
 %{_datadir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
 %{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
 %{_libdir}/cinnamon-settings-daemon-3.0/
