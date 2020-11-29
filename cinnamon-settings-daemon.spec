@@ -41,7 +41,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
-BuildRequires:  meson
+BuildRequires: meson
 BuildRequires:	intltool
 BuildRequires:	gnome-common
 BuildRequires:	cups-devel
@@ -85,7 +85,6 @@ export CXX=g++
 %meson
 %meson_build
 
-
 %install
 %meson_install
 find %{buildroot} -name '*.la' -delete
@@ -94,6 +93,7 @@ find %{buildroot} -name '*.la' -delete
 
 %files
 %doc AUTHORS COPYING
+%{_bindir}/bin/csd-*
 %{_datadir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
 %{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
 %{_libdir}/cinnamon-settings-daemon-3.0/
