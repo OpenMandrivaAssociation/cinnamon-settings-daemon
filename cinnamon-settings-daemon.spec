@@ -97,6 +97,7 @@ find %{buildroot} -name '*.la' -delete
 %{_datadir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
 %{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
 %{_libdir}/cinnamon-settings-daemon-3.0/
+%{_libdir}/cinnamon-settings-daemon/csd-*
 %{_libexecdir}/csd-*
 %{_datadir}/cinnamon-settings-daemon/
 %{_datadir}/applications/csd-automount.desktop
