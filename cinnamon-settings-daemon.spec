@@ -9,7 +9,7 @@ License:	GPLv2+ and LGPLv2+
 URL:		http://cinnamon.linuxmint.com
 Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0: upower_critical-action.patch
-Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
+#Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
 
 BuildRequires:	pkgconfig(cinnamon-desktop) >= 3.2.0
 BuildRequires:	pkgconfig(colord) >= 0.1.9
