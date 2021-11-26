@@ -1,7 +1,7 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	5.0.4
+Version:	5.2.0
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
@@ -54,7 +54,7 @@ BuildRequires: pkgconfig(xtst)
 BuildConflicts:	heimdal-devel
 # As of cinnamon-settings-deamon 4.2.2 is needed or cinnamon-settings won't open due to "No module named 'tinycss'". (angry)
 Requires:      python-tinycss
-# As of cinnamon-settings-deamon 4.4.0 is needed ot cinnamon-settings won'r open due to "ModuleNotFoundError: No module named 'pytz'
+# As of cinnamon-settings-deamon 4.4.0 is needed or cinnamon-settings won't open due to "ModuleNotFoundError: No module named 'pytz'
 Requires:      python-pytz
 
 %description
