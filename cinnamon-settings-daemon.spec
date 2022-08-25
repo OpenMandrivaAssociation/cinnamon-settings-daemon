@@ -1,8 +1,8 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	5.2.0
-Release:	2
+Version:	5.4.5
+Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -23,12 +23,15 @@ BuildRequires:	pkgconfig(gmodule-2.0)
 BuildRequires:	pkgconfig(gthread-2.0)
 BuildRequires:	pkgconfig(gtk+-3.0) >= 3.3.18
 BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires: pkgconfig(ibus-1.0)
 BuildRequires:	pkgconfig(kbproto)
 BuildRequires:	pkgconfig(lcms2) >= 2.2
 BuildRequires:	pkgconfig(libcanberra)
 BuildRequires:	pkgconfig(libcanberra-gtk3)
 BuildRequires:	pkgconfig(libgnomekbd) >= 2.91.1
 BuildRequires:	pkgconfig(libgnomekbdui) >= 2.91.1
+BuildRequires: pkgconfig(libnm)
+BuildRequires: pkgconfig(libnma)
 BuildRequires:	pkgconfig(libnotify) >= 0.7.3
 BuildRequires:	pkgconfig(libpulse) >= 0.9.16
 BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
