@@ -1,7 +1,7 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	5.6.1
+Version:	5.8.0
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
@@ -80,11 +80,6 @@ developing applications that use %{name}.
 %autopatch -p1
 
 %build
-%ifarch armv7hnl
-export CC=gcc
-export CXX=g++
-%endif
-
 %meson
 %meson_build
 
