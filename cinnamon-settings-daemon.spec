@@ -1,7 +1,7 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	5.8.1
+Version:	6.0.0
 Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
@@ -11,8 +11,10 @@ Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version
 Patch0: upower_critical-action.patch
 #Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
 
-BuildRequires:	pkgconfig(cinnamon-desktop) >= 3.2.0
+BuildRequires:	pkgconfig(cinnamon-desktop) >= 6.0.0
+BuildRequires: pkgconfig(cvc) >= 6.0.0
 BuildRequires:	pkgconfig(colord) >= 0.1.9
+BuildRequires: pkgconfig(cups)
 BuildRequires:	pkgconfig(dbus-1) >= 1.1.2
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(fontconfig)
@@ -38,6 +40,8 @@ BuildRequires:	pkgconfig(libpulse-mainloop-glib) >= 0.9.16
 BuildRequires:	pkgconfig(libsystemd)
 BuildRequires:	pkgconfig(libxklavier) >= 5.0
 BuildRequires:	pkgconfig(nss) >= 3.11.2
+BuildRequires: pkgconfig(kbproto)            
+BuildRequires: pkgconfig(pango)
 BuildRequires:	pkgconfig(polkit-gobject-1) >= 0.97
 BuildRequires:	pkgconfig(upower-glib) >= 0.99.0
 BuildRequires:	pkgconfig(x11)
@@ -54,6 +58,13 @@ BuildRequires: pkgconfig(xorg-wacom)
 BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(librsvg-2.0)
 BuildRequires: pkgconfig(xtst)
+BuildRequires:  pkgconfig(x11)            
+BuildRequires:  pkgconfig(xext)            
+BuildRequires:  pkgconfig(xfixes)            
+BuildRequires:  pkgconfig(xi)            
+BuildRequires:  pkgconfig(libxklavier)      
+BuildRequires:  pkgconfig(lcms2)      
+BuildRequires:  pkgconfig(libsystemd)
 BuildConflicts:	heimdal-devel
 # As of cinnamon-settings-deamon 4.2.2 is needed or cinnamon-settings won't open due to "No module named 'tinycss'". (angry)
 Requires:      python-tinycss
