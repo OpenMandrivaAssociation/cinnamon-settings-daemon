@@ -6,7 +6,7 @@ Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
-URL:		http://cinnamon.linuxmint.com
+URL:		https://cinnamon.linuxmint.com
 Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}/%{name}-%{version}.tar.gz
 Patch0: upower_critical-action.patch
 #Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
