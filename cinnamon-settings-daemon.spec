@@ -2,7 +2,7 @@
 
 Name:		cinnamon-settings-daemon
 Version:	6.4.3
-Release:	1
+Release:	2
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -58,13 +58,13 @@ BuildRequires: pkgconfig(xorg-wacom)
 BuildRequires: pkgconfig(libwacom)
 BuildRequires: pkgconfig(librsvg-2.0)
 BuildRequires: pkgconfig(xtst)
-BuildRequires:  pkgconfig(x11)            
-BuildRequires:  pkgconfig(xext)            
-BuildRequires:  pkgconfig(xfixes)            
-BuildRequires:  pkgconfig(xi)            
-BuildRequires:  pkgconfig(libxklavier)      
-BuildRequires:  pkgconfig(lcms2)      
-BuildRequires:  pkgconfig(libsystemd)
+BuildRequires: pkgconfig(x11)            
+BuildRequires: pkgconfig(xext)            
+BuildRequires: pkgconfig(xfixes)            
+BuildRequires: pkgconfig(xi)            
+BuildRequires: pkgconfig(libxklavier)      
+BuildRequires: pkgconfig(lcms2)      
+BuildRequires: pkgconfig(libsystemd)
 BuildConflicts:	heimdal-devel
 # As of cinnamon-settings-deamon 4.2.2 is needed or cinnamon-settings won't open due to "No module named 'tinycss'". (angry)
 Requires:      python-tinycss
@@ -93,7 +93,7 @@ developing applications that use %{name}.
 %build
 export CC=gcc
 export CXX=g++
-%meson
+%meson -Duse_smartcard=disabled
 %meson_build
 
 %install
