@@ -2,7 +2,7 @@
 
 Name:		cinnamon-settings-daemon
 Version:	6.4.3
-Release:	2
+Release:	3
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -11,6 +11,7 @@ Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version
 Patch0: upower_critical-action.patch
 #Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
 
+BuildRequires: mold
 BuildRequires:	pkgconfig(cinnamon-desktop) >= 6.0.0
 BuildRequires: pkgconfig(cvc) >= 6.0.0
 BuildRequires:	pkgconfig(colord) >= 0.1.9
@@ -67,9 +68,10 @@ BuildRequires: pkgconfig(lcms2)
 BuildRequires: pkgconfig(libsystemd)
 BuildConflicts:	heimdal-devel
 # As of cinnamon-settings-deamon 4.2.2 is needed or cinnamon-settings won't open due to "No module named 'tinycss'". (angry)
-Requires:      python-tinycss
+Requires: python-tinycss
 # As of cinnamon-settings-deamon 4.4.0 is needed or cinnamon-settings won't open due to "ModuleNotFoundError: No module named 'pytz'
-Requires:      python-pytz
+Requires: python-pytz
+Requires:	cinnamon-desktop
 
 %description
 A daemon to share settings from CINNAMON to other applications. It also
@@ -91,6 +93,7 @@ developing applications that use %{name}.
 %autopatch -p1
 
 %build
+%global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
 %meson -Duse_smartcard=disabled
