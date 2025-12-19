@@ -1,15 +1,16 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	6.4.3
-Release:	3
+Version:	6.6.1
+Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
 URL:		https://cinnamon.linuxmint.com
 Source0:	https://github.com/linuxmint/cinnamon-settings-daemon/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0: upower_critical-action.patch
-#Patch1:	cinnamon-settings-daemon-4.0.3-clang.patch
+
+BuildSystem:   meson
+BuildOption:   -Duse_smartcard=disabled
 
 BuildRequires: mold
 BuildRequires:	pkgconfig(cinnamon-desktop) >= 6.0.0
@@ -49,7 +50,6 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xi)
-BuildRequires: meson
 BuildRequires:	intltool
 BuildRequires:	gnome-common
 BuildRequires:	cups-devel
@@ -77,30 +77,24 @@ Requires:	cinnamon-desktop
 A daemon to share settings from CINNAMON to other applications. It also
 handles global keybindings, and many of desktop-wide settings.
 
-%package        devel
-Summary:        Development files for %{name}
-Group:          Development/C
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       dbus-glib-devel
+# %package        devel
+# Summary:        Development files for %{name}
+# Group:          Development/C
+# Requires:       %{name}%{?_isa} = %{version}-%{release}
+# Requires:       dbus-glib-devel
 
-%description    devel
-This package contains libraries and header files for
-developing applications that use %{name}.
+# %description    devel
+# This package contains libraries and header files for
+# developing applications that use %{name}.
  
 
-%prep
-%setup -q -n cinnamon-settings-daemon-%{version}
-%autopatch -p1
-
-%build
+%conf -p
 %global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson -Duse_smartcard=disabled
-%meson_build
 
-%install
-%meson_install
+
+%install -a
 find %{buildroot} -name '*.la' -delete
 
 #find_lang %{name} --with-gnome
@@ -111,17 +105,17 @@ find %{buildroot} -name '*.la' -delete
 %{_datadir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
 %{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
 %{_libdir}/cinnamon-settings-daemon-3.0/
+%{_datadir}/cinnamon-settings-daemon-3.0/input-device-example.sh
 %{_libdir}/cinnamon-settings-daemon/csd-*
 %{_libexecdir}/csd-*
-%{_datadir}/cinnamon-settings-daemon/
 %{_datadir}/applications/csd-automount.desktop
 %{_datadir}/dbus-1/system-services/org.cinnamon.SettingsDaemon.DateTimeMechanism.service
 %{_datadir}/glib-2.0/schemas/org.cinnamon.settings-daemon*.xml
 %{_datadir}/icons/hicolor/*/apps/csd-*.*
 %{_datadir}/polkit-1/actions/org.cinnamon.settings*.policy
 
-%files devel
-%{_includedir}/cinnamon-settings-daemon-3.0/
-%{_libdir}/pkgconfig/cinnamon-settings-daemon.pc
-%{_datadir}/cinnamon-settings-daemon-3.0/
+# %files devel
+# %{_includedir}/cinnamon-settings-daemon-3.0/
+# %{_libdir}/pkgconfig/cinnamon-settings-daemon.pc
+# %{_datadir}/cinnamon-settings-daemon-3.0/
 
