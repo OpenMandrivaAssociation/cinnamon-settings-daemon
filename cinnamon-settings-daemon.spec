@@ -1,8 +1,8 @@
 %define _disable_rebuild_configure 1
 
 Name:		cinnamon-settings-daemon
-Version:	6.6.4
-Release:	2
+Version:	6.8.1
+Release:	1
 Summary:	The daemon sharing settings from CINNAMON to GTK+/KDE applications
 Group:		Graphical desktop/Cinnamon
 License:	GPLv2+ and LGPLv2+
@@ -104,11 +104,11 @@ find %{buildroot} -name '*.la' -delete
 %{_bindir}/csd-*
 %{_datadir}/dbus-1/system.d/org.cinnamon.SettingsDaemon.DateTimeMechanism.conf
 %{_sysconfdir}/xdg/autostart/cinnamon-settings-daemon-*.desktop
-%{_libdir}/cinnamon-settings-daemon-3.0/
+#%%{_libdir}/cinnamon-settings-daemon-3.0/
 %{_datadir}/cinnamon-settings-daemon-3.0/input-device-example.sh
 %{_libdir}/cinnamon-settings-daemon/csd-*
 %{_libexecdir}/csd-*
-%{_datadir}/applications/csd-automount.desktop
+#%{_datadir}/applications/csd-automount.desktop
 %{_datadir}/dbus-1/system-services/org.cinnamon.SettingsDaemon.DateTimeMechanism.service
 %{_datadir}/glib-2.0/schemas/org.cinnamon.settings-daemon*.xml
 %{_datadir}/icons/hicolor/*/apps/csd-*.*
